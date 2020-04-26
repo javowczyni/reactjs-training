@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Home from './pages/Home';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import ErrorPage from "./pages/ErrorPage";
+import Menu from "./components/Menu";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <BrowserRouter>
+        <Menu/>
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/contact" component={Contact} />
+            <Route component={ErrorPage} />
+        </Switch>
+    </BrowserRouter>,
   document.getElementById('root')
 );
 
